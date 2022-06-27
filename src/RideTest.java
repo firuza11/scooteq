@@ -6,8 +6,9 @@ import java.text.DecimalFormat;
 public class RideTest {
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
-    public static Ride theRide;
+
     public static void main(String[] args) {
+        Ride theRide = new Ride();
         JFrame mainFrame=new JFrame("Fahrpreis kalkulieren...");
         JLabel buttonName=new JLabel("Nutzdauer in Minuten..:");
         buttonName.setBounds(50,50, 150,30);
@@ -17,7 +18,6 @@ public class RideTest {
         endRideButton.setBounds(50,200,200,30);
         JLabel priceOutput=new JLabel("Bitte zuerst die Nutzdauer eingeben...");
         priceOutput.setBounds(50,250, 400,30);
-
         startRideButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 try {
