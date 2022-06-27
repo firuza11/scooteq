@@ -5,7 +5,7 @@ public class User {
     private String name;
     private String password;
 
-    public User(String name, String password){
+    public User(String name, String password) {
         this.name = name;
         try {
             this.password = encryptPassword(password);
@@ -15,11 +15,11 @@ public class User {
         }
     }
 
-    public void setName(String newName){
-        this.name= newName;
+    public void setName(String newName) {
+        this.name = newName;
     }
 
-    public void setPassword(String newPassword){
+    public void setPassword(String newPassword) {
         try {
             this.password = encryptPassword(newPassword);
         } catch (NoSuchAlgorithmException e) {
@@ -28,18 +28,17 @@ public class User {
         }
     }
 
-
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
 
-    public boolean comparePassword(String password){
+    public boolean comparePassword(String password) {
         try {
-            if(encryptPassword(password).equals(this.password)){
+            if (encryptPassword(password).equals(this.password)) {
                 return true;
             }
         } catch (NoSuchAlgorithmException e) {
@@ -53,10 +52,10 @@ public class User {
         MessageDigest m = MessageDigest.getInstance("MD5");
         m.update(password.getBytes());
         byte[] bytes = m.digest();
-        StringBuilder s = new StringBuilder();  
-        for(int i=0; i< bytes.length ;i++){  
-            s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));  
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < bytes.length; i++) {
+            s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
         }
-        return s.toString(); 
+        return s.toString();
     }
 }
