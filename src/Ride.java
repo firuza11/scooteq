@@ -8,6 +8,7 @@ public class Ride {
     private Timestamp timeOfRideEndInMilliseconds;
     private long durationInSeconds;
     private String ridePrice;
+    private double PRICE_PER_MINUTE = 0.15;
 
     public void start() {
         Instant rightNow = Instant.now();
@@ -27,11 +28,21 @@ public class Ride {
     public void calculatePrice() {
         long  durationInMinutes = durationInSeconds / 60;
         System.out.println("Duration Minutes" + durationInMinutes);
-        ridePrice = df.format(durationInMinutes * 0.15);
+        ridePrice = df.format(durationInMinutes * PRICE_PER_MINUTE);
     }
 
     public String getRidePrice() {
         System.out.println("Ride Price"+ ridePrice);
         return ridePrice;
     }
+
+    public Timestamp getTimeOfRideStartInMilliseconds() {
+        timeOfRideStartInMilliseconds.setNanos(0);
+        return timeOfRideStartInMilliseconds;
+    }
+    public Timestamp getTimeOfRideEndInMilliseconds() {
+        timeOfRideEndInMilliseconds.setNanos(0);
+        return timeOfRideEndInMilliseconds;
+    }
+
 }
