@@ -1,3 +1,4 @@
+package Login;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
@@ -5,7 +6,7 @@ import javax.swing.JTextField;
 
 public class LoginMask extends JFrame{
 
-    public LoginMask(LoginView v, LoginController c) {
+    public LoginMask(View v, LoginController c) {
         this.setTitle("Login");
         final JTextField tf = new JTextField();
         tf.setBounds(50, 100, 150, 20);
