@@ -1,4 +1,4 @@
-package Login;
+package login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +14,7 @@ public class LoginController {
     public ActionListener LoginListener () {
          return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
-                m.doStuff();
+                m.insertUser(new User(v.getName(), v.getPass()));
              }
          };
      }
