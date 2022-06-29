@@ -9,6 +9,7 @@ public class Ride {
     private long durationInSeconds;
     private String ridePrice;
     private double PRICE_PER_MINUTE = 0.15;
+    private double PRICE_BASE = 2;
 
     public void start() {
         Instant rightNow = Instant.now();
@@ -26,7 +27,7 @@ public class Ride {
 
     public void calculatePrice() {
         long  durationInMinutes = durationInSeconds / 60;
-        ridePrice = df.format(durationInMinutes * PRICE_PER_MINUTE);
+        ridePrice = df.format(durationInMinutes * PRICE_PER_MINUTE + PRICE_BASE);
     }
 
     public String getRidePrice() {
