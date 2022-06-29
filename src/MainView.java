@@ -2,6 +2,8 @@
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
+import login.LoginPanel;
+
 public class MainView {
     private MainController controller;
     private JFrame mainframe;
