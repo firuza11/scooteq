@@ -26,9 +26,9 @@ public class MainPanel extends JPanel{
         priceOutput=new JLabel("");
         priceOutput.setBounds(50,250, 400,30);
         startTimeStampLabel=new JLabel("");
-        startTimeStampLabel.setBounds(300, 150, 200, 30);
+        startTimeStampLabel.setBounds(250, 150, 200, 30);
         endTimeStampLabel=new JLabel("");
-        endTimeStampLabel.setBounds(300, 200, 200, 30);
+        endTimeStampLabel.setBounds(250, 200, 200, 30);
 
         this.setSize(600,600);
         this.setLayout(null);
