@@ -31,8 +31,10 @@ public class MainView {
         mainframe.setTitle("Scooteq");
         mainframe.setSize(400, 600);
         mainframe.setLayout(null);
-        mainframe.setVisible(true);
         loginpanel.setVisible(true);
+        mainpanel.setVisible(false);
+        mainframe.setVisible(true);
+        
     }
 
     public void setText(String msg) {
