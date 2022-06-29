@@ -3,22 +3,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginController {
-    LoginModel m;
-    LoginView v;
+    LoginModel model;
+    LoginView view;
 
     public LoginController(LoginView v){
-        this.v = v;
-        this.m = new LoginModel();
+        this.view = v;
+        this.model = new LoginModel();
     }
 
     public ActionListener LoginListener () {
          return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
                 //m.insertUser(new User(v.getName(), v.getPass()));
-                if(m.loginUser(new User(v.getName(), v.getPass()))){
-                    v.setText("Login Successful!");
+                if(model.loginUser(new User(view.getName(), view.getPass()))){
+                    //view.setLoginVisible(false);
+
                 }else{
-                    v.setText("Login failed!");
+                    view.setText("Login failed!");
                 };
              }
          };

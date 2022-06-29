@@ -22,17 +22,14 @@ public class Ride {
 
     public void calculateDurationInSeconds() {
         durationInSeconds = (timeOfRideEndInMilliseconds.getTime() -timeOfRideStartInMilliseconds.getTime()) / 1000;
-        System.out.println("Duration" + durationInSeconds);
     }
 
     public void calculatePrice() {
         long  durationInMinutes = durationInSeconds / 60;
-        System.out.println("Duration Minutes" + durationInMinutes);
         ridePrice = df.format(durationInMinutes * PRICE_PER_MINUTE);
     }
 
     public String getRidePrice() {
-        System.out.println("Ride Price"+ ridePrice);
         return ridePrice;
     }
 
