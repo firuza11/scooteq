@@ -1,6 +1,10 @@
-package login;
+package scooteq.model;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class User {
     private String name;
@@ -58,5 +62,21 @@ public class User {
             s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
         }
         return s.toString();
+    }
+
+    public boolean login(){
+        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/scooteq", "root", null)) {
+            String sql = "SELECT * FROM user WHERE username = ? and password_hash = ?";
+            PreparedStatement stmt = c.prepareStatement(sql);
+            stmt.setString(1, this.getName());
+            stmt.setString(2, this.getPassword());
+            ResultSet rst = stmt.executeQuery();
+            if (rst.next()) {
+               return true;
+            }
+         } catch (Exception e) {
+            e.printStackTrace();
+         }
+         return false;
     }
 }

@@ -1,6 +1,9 @@
+package scooteq.views;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import scooteq.controller.MainController;
 
 public class MainPanel extends JPanel{
 
@@ -11,8 +14,8 @@ public class MainPanel extends JPanel{
 
 
 
-    public MainPanel(MainController controller) {
-        this.controller = controller;
+    public MainPanel(MainView mainView) {
+        this.controller = new MainController(mainView);
         this.init();
     }
 

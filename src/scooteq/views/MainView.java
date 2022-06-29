@@ -1,32 +1,21 @@
+package scooteq.views;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
-import login.LoginPanel;
 
 public class MainView {
-    private MainController controller;
     private JFrame mainframe;
     private LoginPanel loginpanel;
     private MainPanel mainpanel;
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new MainView();
-            }
-        });
-    }
-
     public MainView(){
-        this.controller = new MainController(this);
         this.init();
     }
 
     private void init() {
         mainframe = new JFrame();
-        this.loginpanel = new LoginPanel(controller);
-        this.mainpanel = new MainPanel(controller);
+        this.loginpanel = new LoginPanel(this);
+        this.mainpanel = new MainPanel(this);
         mainframe.add(loginpanel);
         mainframe.add(mainpanel);
 

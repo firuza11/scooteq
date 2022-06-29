@@ -1,31 +1,18 @@
+package scooteq.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import login.LoginModel;
-import login.User;
+import scooteq.model.Ride;
+import scooteq.views.MainView;
 
 public class MainController {
 
     private MainView mainView;
-    private LoginModel loginModel;
     private Ride ride;
 
     public MainController(MainView mainView) {
         this.mainView = mainView;
-        this.loginModel = new LoginModel();
         this.ride = new Ride();
-    }
-
-    public ActionListener LoginListener() {
-        return new ActionListener() {
-            @Override public void actionPerformed (ActionEvent e) {
-               if(loginModel.loginUser(new User(mainView.getName(), mainView.getPass()))){
-                    mainView.setLoginVisible(true);
-               }else{
-                   mainView.setText("Login failed!");
-               };
-            }
-        };
     }
 
     public ActionListener StartRideListener() {
