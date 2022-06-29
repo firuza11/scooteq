@@ -14,7 +14,12 @@ public class LoginController {
     public ActionListener LoginListener () {
          return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
-                m.insertUser(new User(v.getName(), v.getPass()));
+                //m.insertUser(new User(v.getName(), v.getPass()));
+                if(m.loginUser(new User(v.getName(), v.getPass()))){
+                    v.setText("Login Successful!");
+                }else{
+                    v.setText("Login failed!");
+                };
              }
          };
      }
