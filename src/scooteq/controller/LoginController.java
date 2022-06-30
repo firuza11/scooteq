@@ -20,7 +20,7 @@ public class LoginController{
                if(new User(mainView.getName(), mainView.getPass()).login()){
                     mainView.setLoginVisible(true);
                }else{
-                   mainView.setText("Login failed!");
+                   mainView.setText("Login fehlgeschlagen!");
                };
             }
         };

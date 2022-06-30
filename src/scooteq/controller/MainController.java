@@ -21,7 +21,7 @@ public class MainController {
                 try {
                     ride.start();
                     mainView.setStartTimeStampLabel(ride.getTimeOfRideStartInMilliseconds().toString());
-                    mainView.setPriceOutput("Finish the ride to calculate the price...");
+                    mainView.setPriceOutput("Beende die Fahrt, um den Preis zu kalkulieren...");
                 } catch (Exception ex) {
                 };
             }
