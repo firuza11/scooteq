@@ -61,4 +61,8 @@ public class MainView {
     public void setDuration(String durationInMinutes) {
         this.mainpanel.setDurationLabel(durationInMinutes);
     }
+
+    public void setEndButtonEnabled(boolean enabled) {
+        this.mainpanel.setEndButtonEnabled(enabled);
+    }
 }

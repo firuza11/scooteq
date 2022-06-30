@@ -22,6 +22,7 @@ public class MainController {
                     ride.start();
                     mainView.setStartTimeStampLabel(ride.getTimeOfRideStartInMilliseconds().toString());
                     mainView.setPriceOutput("Beende die Fahrt, um den Preis zu kalkulieren...");
+                    mainView.setEndButtonEnabled(true);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 };
@@ -39,6 +40,7 @@ public class MainController {
                     mainView.setPriceOutput("Fahrpreis: " + ride.getRidePrice() + " Eur");
                     mainView.setEndTimeStampLabel(ride.getTimeOfRideEndInMilliseconds().toString());
                     mainView.setDuration("Fahrdauer: " + ride.getDurationInMinutes() + " Minute(n)");
+                    mainView.setEndButtonEnabled(false);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

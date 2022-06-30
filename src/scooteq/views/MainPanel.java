@@ -12,6 +12,8 @@ public class MainPanel extends JPanel{
     private JLabel startTimeStampLabel;
     private JLabel endTimeStampLabel;
     private JLabel duration;
+    private JButton endRideButton;
+    private JButton startRideButton;
 
 
 
@@ -24,14 +26,15 @@ public class MainPanel extends JPanel{
         JLabel buttonName=new JLabel("Los geht's :)");
         buttonName.setBounds(40,100, 150,30);
 
-        JButton startRideButton=new JButton("Fahrt starten");
+        startRideButton=new JButton("Fahrt starten");
         startRideButton.setBounds(40,150,200,30);
 
         startTimeStampLabel=new JLabel("");
         startTimeStampLabel.setBounds(250, 150, 200, 30);
 
-        JButton endRideButton=new JButton("Fahrt beenden");
+        endRideButton=new JButton("Fahrt beenden");
         endRideButton.setBounds(40,200,200,30);
+        endRideButton.setEnabled(false);
 
         endTimeStampLabel=new JLabel("");
         endTimeStampLabel.setBounds(250, 200, 200, 30);
@@ -80,5 +83,10 @@ public class MainPanel extends JPanel{
 
     public void setDurationLabel(String duration) {
         this.duration.setText(duration);
+    }
+
+    public void setEndButtonEnabled(boolean enabled) {
+        this.endRideButton.setEnabled(enabled);
+        this.startRideButton.setEnabled(!enabled);
     }
 }
