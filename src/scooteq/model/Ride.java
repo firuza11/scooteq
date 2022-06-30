@@ -5,12 +5,12 @@ import java.time.Instant;
 
 public class Ride {
     private static final DecimalFormat df = new DecimalFormat("0.00");
+    private final double PRICE_PER_MINUTE = 0.15;
+    private final double PRICE_BASE = 2;
     private Timestamp timeOfRideStartInMilliseconds;
     private Timestamp timeOfRideEndInMilliseconds;
     private long durationInSeconds;
     private String ridePrice;
-    private double PRICE_PER_MINUTE = 0.15;
-    private double PRICE_BASE = 2;
 
     public void start() {
         Instant rightNow = Instant.now();
@@ -44,4 +44,7 @@ public class Ride {
         return timeOfRideEndInMilliseconds;
     }
 
+    public long getDurationInMinutes(){
+        return durationInSeconds / 60;
+    }
 }

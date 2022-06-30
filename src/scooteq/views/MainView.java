@@ -18,7 +18,7 @@ public class MainView {
         this.mainpanel = new MainPanel(this);
         mainframe.add(loginpanel);
         mainframe.add(mainpanel);
-
+        
         mainframe.setTitle("Scooteq");
         mainframe.setSize(400, 600);
         mainframe.setLayout(null);
@@ -56,5 +56,9 @@ public class MainView {
 
     public void setEndTimeStampLabel(String output){
         this.mainpanel.setEndTimeStampLabel(output);
+    }
+
+    public void setDuration(String durationInMinutes) {
+        this.mainpanel.setDurationLabel(durationInMinutes);
     }
 }

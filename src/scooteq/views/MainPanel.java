@@ -11,6 +11,7 @@ public class MainPanel extends JPanel{
     private JLabel priceOutput;
     private JLabel startTimeStampLabel;
     private JLabel endTimeStampLabel;
+    private JLabel duration;
 
 
 
@@ -22,16 +23,30 @@ public class MainPanel extends JPanel{
     private void init() {
         JLabel buttonName=new JLabel("Los geht's :)");
         buttonName.setBounds(40,100, 150,30);
+
         JButton startRideButton=new JButton("Fahrt starten");
         startRideButton.setBounds(40,150,200,30);
-        JButton endRideButton=new JButton("Fahrt beenden");
-        endRideButton.setBounds(40,200,200,30);
-        priceOutput=new JLabel("");
-        priceOutput.setBounds(40,250, 400,30);
+
         startTimeStampLabel=new JLabel("");
         startTimeStampLabel.setBounds(250, 150, 200, 30);
+
+        JButton endRideButton=new JButton("Fahrt beenden");
+        endRideButton.setBounds(40,200,200,30);
+
         endTimeStampLabel=new JLabel("");
         endTimeStampLabel.setBounds(250, 200, 200, 30);
+
+        duration = new JLabel("");
+        duration.setBounds(40,250, 400,30);
+        
+        priceOutput=new JLabel("");
+        priceOutput.setBounds(40,300, 400,30);
+
+        JLabel activationLabel = new JLabel("Aktivierungsgebühr: 2 Eur");
+        activationLabel.setBounds(40, 350, 200, 30);
+
+        JLabel priceLabel = new JLabel("Preis pro Minute: 0,15 Eur");
+        priceLabel.setBounds(40, 380, 200, 30);
 
         this.setSize(600,600);
         this.setLayout(null);
@@ -42,9 +57,12 @@ public class MainPanel extends JPanel{
         this.add(startRideButton);
         this.add(startTimeStampLabel);
         this.add(endTimeStampLabel);
+        this.add(duration);
         this.add(endRideButton);
         this.add(priceOutput);
         this.add(buttonName);
+        this.add(priceLabel);
+        this.add(activationLabel);
 
     }
 
@@ -58,5 +76,9 @@ public class MainPanel extends JPanel{
 
     public void setEndTimeStampLabel(String output) {
         endTimeStampLabel.setText(output);
+    }
+
+    public void setDurationLabel(String duration) {
+        this.duration.setText(duration);
     }
 }
