@@ -58,8 +58,8 @@ public class User {
         m.update(password.getBytes());
         byte[] bytes = m.digest();
         StringBuilder s = new StringBuilder();
-        for (int i = 0; i < bytes.length; i++) {
-            s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+        for (byte b : bytes) {
+            s.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
         return s.toString();
     }
