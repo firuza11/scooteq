@@ -35,7 +35,7 @@ public class MainController {
                     ride.end();
                     ride.calculateDurationInSeconds();
                     ride.calculatePrice();
-                    mainView.setPriceOutput(String.valueOf("Fahrpreis: " + ride.getRidePrice() + " Eur"));
+                    mainView.setPriceOutput("Fahrpreis: " + ride.getRidePrice() + " Eur");
                     mainView.setEndTimeStampLabel(ride.getTimeOfRideEndInMilliseconds().toString());
                 } catch (Exception ex) {
                 }
