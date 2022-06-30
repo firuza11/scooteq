@@ -21,13 +21,13 @@ public class MainPanel extends JPanel{
 
     private void init() {
         JLabel buttonName=new JLabel("Los geht's :)");
-        buttonName.setBounds(50,100, 150,30);
+        buttonName.setBounds(40,100, 150,30);
         JButton startRideButton=new JButton("Fahrt starten");
-        startRideButton.setBounds(50,150,200,30);
+        startRideButton.setBounds(40,150,200,30);
         JButton endRideButton=new JButton("Fahrt beenden");
-        endRideButton.setBounds(50,200,200,30);
+        endRideButton.setBounds(40,200,200,30);
         priceOutput=new JLabel("");
-        priceOutput.setBounds(50,250, 400,30);
+        priceOutput.setBounds(40,250, 400,30);
         startTimeStampLabel=new JLabel("");
         startTimeStampLabel.setBounds(250, 150, 200, 30);
         endTimeStampLabel=new JLabel("");
