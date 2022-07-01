@@ -1,4 +1,5 @@
 package scooteq.model;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -10,37 +11,25 @@ public class User {
     private String name;
     private String password;
 
-    public User(String name, String password) {
+    /**
+     * Creates a user with the entered password and username. The password will be
+     * encrypted during creation.
+     * 
+     * @param name     The username
+     * @param password The password
+     * @throws NoSuchAlgorithmException If the user's password can not be encrypted
+     */
+    public User(String name, String password) throws NoSuchAlgorithmException {
         this.name = name;
-        try {
-            this.password = encryptPassword(password);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            this.password = password;
-        }
+        this.password = encryptPassword(password);
     }
 
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    public void setPassword(String newPassword) {
-        try {
-            this.password = encryptPassword(newPassword);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            this.password = newPassword;
-        }
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
+    /**
+     * Encrypts and compares the entered String with the user's password.
+     * 
+     * @param password The password to be compared
+     * @return boolean whether or not the passwords are equal
+     */
     public boolean comparePassword(String password) {
         try {
             if (encryptPassword(password).equals(this.password)) {
@@ -48,35 +37,48 @@ public class User {
             }
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            return false;
         }
         return false;
     }
 
+    /**
+     * Encrypts entered user password to a MD5 hashsum.
+     * 
+     * @param password the unencrypted password String
+     * @return the encrypted password String
+     * @throws NoSuchAlgorithmException if no MD5 algorithm provider is found
+     */
     private String encryptPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest m = MessageDigest.getInstance("MD5");
         m.update(password.getBytes());
         byte[] bytes = m.digest();
         StringBuilder s = new StringBuilder();
+
+        // Iterate over digested bytes and convert to hexadecimal
         for (byte b : bytes) {
             s.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
         return s.toString();
     }
 
-    public boolean login(){
+    /**
+     * Attempts to login a user by establishing a database connection.
+     * 
+     * @return boolean whether or not the login was successful.
+     */
+    public boolean login() {
         try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/scooteq", "root", null)) {
             String sql = "SELECT * FROM user WHERE username = ? and password_hash = ?";
             PreparedStatement stmt = c.prepareStatement(sql);
-            stmt.setString(1, this.getName());
-            stmt.setString(2, this.getPassword());
+            stmt.setString(1, this.name);
+            stmt.setString(2, this.password);
             ResultSet rst = stmt.executeQuery();
             if (rst.next()) {
-               return true;
+                return true;
             }
-         } catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-         }
-         return false;
+        }
+        return false;
     }
 }

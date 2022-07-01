@@ -1,4 +1,5 @@
 package scooteq.controller;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,7 +18,8 @@ public class MainController {
 
     public ActionListener StartRideListener() {
         return new ActionListener() {
-            @Override public void actionPerformed (ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 try {
                     ride.start();
                     mainView.setStartTimeStampLabel(ride.getTimeOfRideStartInMilliseconds().toString());
@@ -25,14 +27,17 @@ public class MainController {
                     mainView.switchButtonsEnabled(true);
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                };
+                    
+                }
+                ;
             }
         };
     }
 
     public ActionListener EndRideListener() {
         return new ActionListener() {
-            @Override public void actionPerformed (ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 try {
                     ride.end();
                     ride.calculateDurationInSeconds();

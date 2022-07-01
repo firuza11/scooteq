@@ -1,10 +1,11 @@
 package scooteq.model;
+
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
 import java.time.Instant;
 
 public class Ride {
-    private static final DecimalFormat df = new DecimalFormat("0.00");
+    private static final DecimalFormat decimalformat = new DecimalFormat("0.00");
     private final double PRICE_PER_MINUTE = 0.15;
     private final double PRICE_BASE = 2;
     private Timestamp timeOfRideStartInMilliseconds;
@@ -23,12 +24,12 @@ public class Ride {
     }
 
     public void calculateDurationInSeconds() {
-        durationInSeconds = (timeOfRideEndInMilliseconds.getTime() -timeOfRideStartInMilliseconds.getTime()) / 1000;
+        durationInSeconds = (timeOfRideEndInMilliseconds.getTime() - timeOfRideStartInMilliseconds.getTime()) / 1000;
     }
 
     public void calculatePrice() {
-        long  durationInMinutes = durationInSeconds / 60;
-        ridePrice = df.format(durationInMinutes * PRICE_PER_MINUTE + PRICE_BASE);
+        long durationInMinutes = durationInSeconds / 60;
+        ridePrice = decimalformat.format(durationInMinutes * PRICE_PER_MINUTE + PRICE_BASE);
     }
 
     public String getRidePrice() {
@@ -39,12 +40,13 @@ public class Ride {
         timeOfRideStartInMilliseconds.setNanos(0);
         return timeOfRideStartInMilliseconds;
     }
+
     public Timestamp getTimeOfRideEndInMilliseconds() {
         timeOfRideEndInMilliseconds.setNanos(0);
         return timeOfRideEndInMilliseconds;
     }
 
-    public long getDurationInMinutes(){
+    public long getDurationInMinutes() {
         return durationInSeconds / 60;
     }
 }

@@ -9,9 +9,9 @@ import scooteq.controller.LoginController;
 
 public class LoginPanel extends JPanel {
     private LoginController controller;
-    private JTextField tf;
-    private JPasswordField pf;
-    private JLabel txt;
+    private JTextField namefield;
+    private JPasswordField passwordfield;
+    private JLabel messagetext;
 
     public LoginPanel(MainView mainView){
         this.controller = new LoginController(mainView);
@@ -22,37 +22,37 @@ public class LoginPanel extends JPanel {
         JLabel title = new JLabel("Scooteq");
         title.setBounds(170, 50, 400, 30);
 
-        tf = new JTextField();
-        tf.setBounds(120, 120, 150, 20);
+        namefield = new JTextField();
+        namefield.setBounds(120, 120, 150, 20);
 
-        pf = new JPasswordField();
-        pf.setBounds(120, 170, 150, 20);
+        passwordfield = new JPasswordField();
+        passwordfield.setBounds(120, 170, 150, 20);
 
-        JButton b = new JButton("Login");
-        b.setBounds(95, 220, 200, 30);
-        b.addActionListener(controller.LoginListener());
+        JButton loginbutton = new JButton("Login");
+        loginbutton.setBounds(95, 220, 200, 30);
+        loginbutton.addActionListener(controller.LoginListener());
 
-        txt = new JLabel();
-        txt.setBounds(120, 270, 400, 30);
+        messagetext = new JLabel();
+        messagetext.setBounds(120, 270, 400, 30);
 
         this.setSize(600,600);
         this.setLayout(null);
         this.add(title);
-        this.add(tf);
-        this.add(pf);
-        this.add(b);
-        this.add(txt);
+        this.add(namefield);
+        this.add(passwordfield);
+        this.add(loginbutton);
+        this.add(messagetext);
     }
     
-    public void setText(String msg){
-        txt.setText(msg);
+    public void setMessage(String msg){
+        messagetext.setText(msg);
     }
 
-    public String getPass() {
-        return String.valueOf(this.pf.getPassword());
+    public String getPassword() {
+        return String.valueOf(this.passwordfield.getPassword());
     }
 
-    public String getName() {
-        return this.tf.getText();
+    public String getUsername() {
+        return this.namefield.getText();
     }
 }
