@@ -31,12 +31,12 @@ public class MainView {
         loginpanel.setMessage(msg);
     }
 
-    public String getPass() {
+    public String getPassword() {
         return loginpanel.getPassword();
     }
 
-    public String getName() {
-        return loginpanel.getName();
+    public String getUsername() {
+        return loginpanel.getUsername();
     }
 
     public void setLoginVisible(boolean isLoggedIn) {

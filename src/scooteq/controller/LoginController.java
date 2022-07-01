@@ -22,7 +22,7 @@ public class LoginController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    if (new User(mainView.getName(), mainView.getPass()).login()) {
+                    if (new User(mainView.getUsername(), mainView.getPassword()).login()) {
                         mainView.setLoginVisible(true);
                     } else {
                         mainView.setText("Login fehlgeschlagen!");
