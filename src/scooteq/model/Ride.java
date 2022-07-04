@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.time.Instant;
 
 public class Ride {
-    private static final DecimalFormat decimalformat = new DecimalFormat("0.00");
+    private final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
     private final double PRICE_PER_MINUTE = 0.15;
     private final double PRICE_BASE = 2;
     private String ridePrice = "";
@@ -46,7 +46,7 @@ public class Ride {
      */
     public void calculatePrice() {
         long durationInMinutes = durationInSeconds / 60;
-        ridePrice = decimalformat.format(durationInMinutes * PRICE_PER_MINUTE + PRICE_BASE);
+        ridePrice = DECIMAL_FORMAT.format(durationInMinutes * PRICE_PER_MINUTE + PRICE_BASE);
     }
 
     /**

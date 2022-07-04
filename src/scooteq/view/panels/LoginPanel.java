@@ -75,7 +75,7 @@ public class LoginPanel extends JPanel {
      * @return the entered password.
      */
     public String getPassword() {
-        return String.valueOf(this.passwordfield.getPassword());
+        return String.valueOf(passwordfield.getPassword());
     }
 
     /**
@@ -84,6 +84,6 @@ public class LoginPanel extends JPanel {
      * @return the entered username.
      */
     public String getUsername() {
-        return this.namefield.getText();
+        return namefield.getText();
     }
 }

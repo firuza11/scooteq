@@ -8,22 +8,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class User {
-    private String name;
+    private String username;
     private String password;
-    // if this was used more than once it should be in a separate class and dynamic e.g. pulled from properties.
-    private final String url = "jdbc:mysql://localhost:3306/scooteq";
-    private final String user = "root";
+    // if this was used more than once it should be in a separate class and dynamic
+    // e.g. pulled from properties.
+    private final String DB_URL = "jdbc:mysql://localhost:3306/scooteq";
+    private final String DB_USER = "root";
 
     /**
      * Creates a user with the entered password and username. The password will be
      * encrypted during creation.
      * 
-     * @param name     The username
+     * @param username The username
      * @param password The password
      * @throws NoSuchAlgorithmException If the user's password can not be encrypted.
      */
-    public User(String name, String password) throws NoSuchAlgorithmException {
-        this.name = name;
+    public User(String username, String password) throws NoSuchAlgorithmException {
+        this.username = username;
         this.password = encryptPassword(password);
     }
 
@@ -70,10 +71,10 @@ public class User {
      * @return boolean whether or not the login was successful.
      */
     public boolean login() {
-        try (Connection c = DriverManager.getConnection(url, user, null)) {
+        try (Connection c = DriverManager.getConnection(DB_URL, DB_USER, null)) {
             String sql = "SELECT * FROM user WHERE username = ? and password_hash = ?";
             PreparedStatement stmt = c.prepareStatement(sql);
-            stmt.setString(1, this.name);
+            stmt.setString(1, this.username);
             stmt.setString(2, this.password);
             ResultSet rst = stmt.executeQuery();
             if (rst.next()) {
