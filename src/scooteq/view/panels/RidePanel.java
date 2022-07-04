@@ -10,7 +10,6 @@ import scooteq.view.MainView;
 /**
  * This class contains the UI elements to start and end scooteq rides. It will
  * also display several messages that are dynamically added to the panel by the
- * {@code MainController}.
  * 
  * @see RideController
  */

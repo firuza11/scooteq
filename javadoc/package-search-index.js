@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"scooteq"},{"l":"scooteq.controller"},{"l":"scooteq.model"},{"l":"scooteq.view"},{"l":"scooteq.view.panels"}];updateSearchResults();

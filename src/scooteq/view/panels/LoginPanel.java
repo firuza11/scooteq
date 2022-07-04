@@ -11,7 +11,6 @@ import scooteq.view.MainView;
 
 /**
  * This class contains the UI elements to login into the scooteq app.
- * {@code MainController}.
  * 
  * @see LoginController
  */
