@@ -8,10 +8,6 @@ public class MainView {
     private MainPanel mainpanel;
 
     public MainView() {
-        this.init();
-    }
-
-    private void init() {
         loginpanel = new LoginPanel(this);
         loginpanel.init();
         loginpanel.setVisible(true);
@@ -28,7 +24,6 @@ public class MainView {
         mainframe.setSize(400, 600);
         mainframe.setLayout(null);
         mainframe.setVisible(true);
-
     }
 
     public void setLoginVisible(boolean isLoggedIn) {
