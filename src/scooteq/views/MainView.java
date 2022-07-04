@@ -27,40 +27,16 @@ public class MainView {
 
     }
 
-    public void setText(String msg) {
-        loginpanel.setMessage(msg);
-    }
-
-    public String getPassword() {
-        return loginpanel.getPassword();
-    }
-
-    public String getUsername() {
-        return loginpanel.getUsername();
-    }
-
     public void setLoginVisible(boolean isLoggedIn) {
         this.loginpanel.setVisible(false);
         this.mainpanel.setVisible(true);
     }
 
-    public void setPriceOutput(String output) {
-        this.mainpanel.setPriceOutput(output);
+    public MainPanel getMainPanel() {
+        return this.mainpanel;
     }
 
-    public void setStartTimeStampLabel(String output) {
-        this.mainpanel.setStartTimeStampLabel(output);
-    }
-
-    public void setEndTimeStampLabel(String output) {
-        this.mainpanel.setEndTimeStampLabel(output);
-    }
-
-    public void setDuration(String durationInMinutes) {
-        this.mainpanel.setDurationLabel(durationInMinutes);
-    }
-
-    public void switchButtonsEnabled(boolean enabled) {
-        this.mainpanel.switchEnabledButtons(enabled);
+    public LoginPanel getLoginPanel() {
+        return this.getLoginPanel();
     }
 }

@@ -79,6 +79,7 @@ public class User {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //return false if login failed regardless of reason
         return false;
     }
 }

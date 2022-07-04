@@ -84,8 +84,8 @@ public class MainPanel extends JPanel {
         this.duration.setText(duration);
     }
 
-    public void switchEnabledButtons(boolean enabled) {
-        this.endRideButton.setEnabled(enabled);
-        this.startRideButton.setEnabled(!enabled);
+    public void switchButtonsEnabled(boolean isRideStarted) {
+        this.endRideButton.setEnabled(isRideStarted);
+        this.startRideButton.setEnabled(!isRideStarted);
     }
 }
