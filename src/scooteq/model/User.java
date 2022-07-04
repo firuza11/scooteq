@@ -54,7 +54,7 @@ public class User {
         byte[] bytes = m.digest();
         StringBuilder s = new StringBuilder();
 
-        // Iterate over digested bytes and convert to hexadecimal
+        // Iterate over digested bytes and add to String
         for (byte b : bytes) {
             s.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
         }
