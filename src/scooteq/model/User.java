@@ -17,7 +17,7 @@ public class User {
      * 
      * @param name     The username
      * @param password The password
-     * @throws NoSuchAlgorithmException If the user's password can not be encrypted
+     * @throws NoSuchAlgorithmException If the user's password can not be encrypted.
      */
     public User(String name, String password) throws NoSuchAlgorithmException {
         this.name = name;
@@ -27,8 +27,8 @@ public class User {
     /**
      * Encrypts and compares the entered String with the user's password.
      * 
-     * @param password The password to be compared
-     * @return boolean whether or not the passwords are equal
+     * @param password The password to be compared.
+     * @return boolean whether or not the passwords are equal.
      */
     public boolean comparePassword(String password) {
         try {
@@ -44,9 +44,9 @@ public class User {
     /**
      * Encrypts entered user password to a MD5 hashsum.
      * 
-     * @param password the unencrypted password String
-     * @return the encrypted password String
-     * @throws NoSuchAlgorithmException if no MD5 algorithm provider is found
+     * @param password the unencrypted password String.
+     * @return the encrypted password String.
+     * @throws NoSuchAlgorithmException if no MD5 algorithm provider is found.
      */
     private String encryptPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest m = MessageDigest.getInstance("MD5");
