@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 public class User {
     private String name;
     private String password;
+    // if this was used more than once it should be in a separate class and dynamic e.g. pulled from properties.
+    private final String url = "jdbc:mysql://localhost:3306/scooteq";
+    private final String user = "root";
 
     /**
      * Creates a user with the entered password and username. The password will be
@@ -67,7 +70,7 @@ public class User {
      * @return boolean whether or not the login was successful.
      */
     public boolean login() {
-        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/scooteq", "root", null)) {
+        try (Connection c = DriverManager.getConnection(url, user, null)) {
             String sql = "SELECT * FROM user WHERE username = ? and password_hash = ?";
             PreparedStatement stmt = c.prepareStatement(sql);
             stmt.setString(1, this.name);
@@ -79,7 +82,7 @@ public class User {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //return false if login failed regardless of reason
+        // return false if login failed regardless of reason
         return false;
     }
 }
