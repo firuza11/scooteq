@@ -12,13 +12,14 @@ public class LoginPanel extends JPanel {
     private JTextField namefield;
     private JPasswordField passwordfield;
     private JLabel messagetext;
+    private MainView mainView;
 
     public LoginPanel(MainView mainView){
-        this.controller = new LoginController(mainView);
-        this.init();
+        this.mainView = mainView;
     }
 
-    private void init() {
+    public void init() {
+        this.controller = new LoginController(mainView);
         JLabel title = new JLabel("Scooteq");
         title.setBounds(170, 50, 400, 30);
 

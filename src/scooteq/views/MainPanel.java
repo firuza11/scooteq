@@ -15,13 +15,14 @@ public class MainPanel extends JPanel {
     private JLabel duration;
     private JButton endRideButton;
     private JButton startRideButton;
+    private MainView mainView;
 
     public MainPanel(MainView mainView) {
-        this.controller = new MainController(mainView);
-        this.init();
+        this.mainView = mainView;
     }
 
-    private void init() {
+    public void init() {
+        this.controller = new MainController(mainView);
         JLabel buttonName = new JLabel("Los geht's :)");
         buttonName.setBounds(40, 100, 150, 30);
 

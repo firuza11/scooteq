@@ -9,19 +9,18 @@ import scooteq.views.MainView;
 
 public class MainController {
 
-    
     private MainPanel mainPanel;
     private Ride ride;
 
     /**
-     * Creates a new {@code MainController} that is called from the mainview
+     * Creates a new {@code MainController} that is called from the {@code MainPanel}
+     * 
      * @param mainView
      */
     public MainController(MainView mainView) {
         this.mainPanel = mainView.getMainPanel();
         this.ride = new Ride();
     }
-
 
     /**
      * 

@@ -12,31 +12,35 @@ public class MainView {
     }
 
     private void init() {
+        loginpanel = new LoginPanel(this);
+        loginpanel.init();
+        loginpanel.setVisible(true);
+
+        mainpanel = new MainPanel(this);
+        mainpanel.init();
+        mainpanel.setVisible(false);
+
         mainframe = new JFrame();
-        this.loginpanel = new LoginPanel(this);
-        this.mainpanel = new MainPanel(this);
         mainframe.add(loginpanel);
         mainframe.add(mainpanel);
 
         mainframe.setTitle("Scooteq");
         mainframe.setSize(400, 600);
         mainframe.setLayout(null);
-        loginpanel.setVisible(true);
-        mainpanel.setVisible(false);
         mainframe.setVisible(true);
 
     }
 
     public void setLoginVisible(boolean isLoggedIn) {
-        this.loginpanel.setVisible(false);
-        this.mainpanel.setVisible(true);
+        loginpanel.setVisible(false);
+        mainpanel.setVisible(true);
     }
 
     public MainPanel getMainPanel() {
-        return this.mainpanel;
+        return mainpanel;
     }
 
     public LoginPanel getLoginPanel() {
-        return this.getLoginPanel();
+        return loginpanel;
     }
 }
